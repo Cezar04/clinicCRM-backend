@@ -30,6 +30,9 @@ public class ClientController {
 
     @PostMapping("/add-client")
     private ResponseEntity<?> addClient(@RequestBody ClientDAO clientDAO){
+        if(clientService.existsEmail(clientDAO.getEmail())){
+            return ResponseEntity.badRequest().body("Email is already taken");
+        }
         return clientService.addClient(clientDAO);
     }
 

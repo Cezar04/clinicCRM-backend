@@ -50,6 +50,11 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
+    public Boolean existsEmail(String email) {
+        return clientRepository.existsByEmail(email);
+    }
+
+    @Override
     public ResponseEntity<?> updateClient(ClientDAO clientDAO, UUID clientId) {
         return  null;
     }

@@ -2,6 +2,8 @@ package com.crm.clinicCrm.helper;
 
 import com.crm.clinicCrm.client.ClientDAO;
 import com.crm.clinicCrm.client.ClientModel;
+import com.crm.clinicCrm.doctor.DoctorDAO;
+import com.crm.clinicCrm.doctor.DoctorModel;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -31,6 +33,24 @@ public class ServiceHelper {
                 .email(clientDAO.getEmail())
                 .isCONSENT(clientDAO.isCONSENT())
                 .isGDPR(clientDAO.isGDPR())
+                .build();
+    }
+
+    public DoctorDAO convertToDoctorDAO(DoctorModel doctorModel){
+        return DoctorDAO.builder()
+                .firstName(doctorModel.getFirstName())
+                .lastName(doctorModel.getLastName())
+                .email(doctorModel.getEmail())
+                .phoneNumber(doctorModel.getPhoneNumber())
+                .build();
+    }
+
+    public DoctorModel convertToDoctorEntity(DoctorDAO doctorDAO){
+        return DoctorModel.builder()
+                .firstName(doctorDAO.getFirstName())
+                .lastName(doctorDAO.getLastName())
+                .email(doctorDAO.getEmail())
+                .phoneNumber(doctorDAO.getPhoneNumber())
                 .build();
     }
 }
