@@ -21,7 +21,7 @@ public class ClientModel {
     @Id
     @GeneratedValue
     @Type(type = "pg-uuid")
-    @Column(name = "client")
+    @Column(name = "client_id")
     private UUID id;
 
     private String firstName;

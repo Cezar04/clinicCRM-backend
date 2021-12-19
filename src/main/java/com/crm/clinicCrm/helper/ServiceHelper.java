@@ -2,11 +2,15 @@ package com.crm.clinicCrm.helper;
 
 import com.crm.clinicCrm.client.ClientDAO;
 import com.crm.clinicCrm.client.ClientModel;
+import com.crm.clinicCrm.client.service.ClientService;
 import com.crm.clinicCrm.doctor.DoctorDAO;
 import com.crm.clinicCrm.doctor.DoctorModel;
+import com.crm.clinicCrm.medicalRecord.RecordDAO;
+import com.crm.clinicCrm.medicalRecord.RecordModel;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * here we do the converting from the DAO to entity and vice-versa
@@ -51,6 +55,23 @@ public class ServiceHelper {
                 .lastName(doctorDAO.getLastName())
                 .email(doctorDAO.getEmail())
                 .phoneNumber(doctorDAO.getPhoneNumber())
+                .build();
+    }
+
+    public RecordDAO convertToRecordDAO(RecordModel recordModel){
+
+        return RecordDAO.builder()
+                .comment(recordModel.getComment())
+                .procedure(recordModel.getProcedure())
+                .client(recordModel.getClient())
+                .build();
+    }
+
+    public RecordModel convertToRecordEntity(RecordDAO recordDAO){
+        return  RecordModel.builder()
+                .comment(recordDAO.getComment())
+                .procedure(recordDAO.getProcedure())
+                .client(recordDAO.getClient())
                 .build();
     }
 }

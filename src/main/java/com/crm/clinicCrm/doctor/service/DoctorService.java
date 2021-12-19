@@ -14,4 +14,6 @@ public interface DoctorService {
     ResponseEntity<?> updateDoctor(DoctorDAO doctorDAO, UUID doctorId);
     ResponseEntity<?> deleteDoctor(UUID doctorId);
 
+//    TODO implement update and delete
+
 }
