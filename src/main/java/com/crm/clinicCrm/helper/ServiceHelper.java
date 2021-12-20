@@ -20,6 +20,7 @@ import java.util.UUID;
 public class ServiceHelper {
     public ClientDAO convertToClientDAO(ClientModel clientModel){
         return ClientDAO.builder()
+                .id(clientModel.getId())
                 .firstName(clientModel.getFirstName())
                 .lastName(clientModel.getLastName())
                 .email(clientModel.getEmail())
@@ -42,6 +43,7 @@ public class ServiceHelper {
 
     public DoctorDAO convertToDoctorDAO(DoctorModel doctorModel){
         return DoctorDAO.builder()
+                .id(doctorModel.getId())
                 .firstName(doctorModel.getFirstName())
                 .lastName(doctorModel.getLastName())
                 .email(doctorModel.getEmail())
@@ -61,6 +63,7 @@ public class ServiceHelper {
     public RecordDAO convertToRecordDAO(RecordModel recordModel){
 
         return RecordDAO.builder()
+                .id(recordModel.getId())
                 .comment(recordModel.getComment())
                 .procedure(recordModel.getProcedure())
                 .client(recordModel.getClient())

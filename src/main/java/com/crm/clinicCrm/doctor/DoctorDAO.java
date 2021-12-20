@@ -3,6 +3,7 @@ package com.crm.clinicCrm.doctor;
 import lombok.*;
 
 import javax.validation.constraints.Email;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,7 +11,7 @@ import javax.validation.constraints.Email;
 @Setter
 @Builder
 public class DoctorDAO {
-
+    private UUID id;
     private String firstName;
     private String lastName;
     @Email

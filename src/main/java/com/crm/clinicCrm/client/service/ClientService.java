@@ -14,5 +14,5 @@ public interface ClientService {
     ResponseEntity<?> updateClient(ClientDAO clientDAO, UUID clientId);
     ResponseEntity<?> deleteClient(UUID clientId);
 
-//    TO DO make get by email and by name methods, implement update and delete
+//    TODO make get by email and by name methods
 }
