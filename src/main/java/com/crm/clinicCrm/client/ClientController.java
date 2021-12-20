@@ -36,4 +36,14 @@ public class ClientController {
         return clientService.addClient(clientDAO);
     }
 
+    @DeleteMapping("/delete/{clientId}")
+    public ResponseEntity<?> deleteClient(@PathVariable UUID clientId){
+        return clientService.deleteClient(clientId);
+    }
+
+    @PutMapping("/edit/{clientId}")
+    public ResponseEntity<?> updateClient(@RequestBody ClientDAO clientDAO, @PathVariable UUID clientId){
+        return clientService.updateClient(clientDAO,clientId);
+    }
+
 }

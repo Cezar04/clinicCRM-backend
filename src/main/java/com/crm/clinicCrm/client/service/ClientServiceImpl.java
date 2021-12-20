@@ -56,6 +56,25 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public ResponseEntity<?> updateClient(ClientDAO clientDAO, UUID clientId) {
+        Optional<ClientModel> clientModelOptional = clientRepository.findById(clientId);
+        ClientModel unmanagedClientEntity = serviceHelper.convertToClientEntity(clientDAO);
+
+        if (clientModelOptional.isPresent()){
+            ClientModel managedClientEntity = clientModelOptional.get();
+            managedClientEntity.setCONSENT(unmanagedClientEntity.isCONSENT());
+            managedClientEntity.setEmail(unmanagedClientEntity.getEmail());
+            managedClientEntity.setFirstName(unmanagedClientEntity.getFirstName());
+            managedClientEntity.setLastName(unmanagedClientEntity.getLastName());
+            managedClientEntity.setPhoneNumber(unmanagedClientEntity.getPhoneNumber());
+            managedClientEntity.setGDPR(unmanagedClientEntity.isGDPR());
+            clientRepository.save(managedClientEntity);
+
+            return ResponseEntity.status(HttpStatus.OK).body("Client Updated");
+        }else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("client "+ clientId+" not found");
+        }
+
+
         return  null;
     }
 
