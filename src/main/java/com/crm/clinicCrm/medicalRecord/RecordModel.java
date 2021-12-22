@@ -27,6 +27,8 @@ public class RecordModel {
     private String procedure;
     private String comment;
 
+
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private ClientModel client;

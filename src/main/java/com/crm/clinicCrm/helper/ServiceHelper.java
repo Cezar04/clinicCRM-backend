@@ -66,7 +66,6 @@ public class ServiceHelper {
                 .id(recordModel.getId())
                 .comment(recordModel.getComment())
                 .procedure(recordModel.getProcedure())
-                .client(recordModel.getClient())
                 .build();
     }
 
@@ -74,7 +73,6 @@ public class ServiceHelper {
         return  RecordModel.builder()
                 .comment(recordDAO.getComment())
                 .procedure(recordDAO.getProcedure())
-                .client(recordDAO.getClient())
                 .build();
     }
 }

@@ -9,8 +9,8 @@ import java.util.UUID;
 
 public interface RecordService {
     List<RecordDAO> findAll();
-    ResponseEntity<?> addRecord(RecordModel recordModel, UUID clientID);
-    RecordDAO findRecordByClientId(UUID clientId);
+    ResponseEntity<?> addRecord(RecordDAO recordDAO, UUID clientID);
+    RecordModel findRecordByClientId(UUID clientId);
 //    TODO add findRecordBy DoctorID
     ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId, UUID clientId);
     ResponseEntity<?> deleteRecord(UUID recordId);

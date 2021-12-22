@@ -16,5 +16,4 @@ public class RecordDAO {
     private String procedure;
     private String comment;
 
-    private ClientModel client;
 }

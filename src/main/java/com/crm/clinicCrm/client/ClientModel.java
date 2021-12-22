@@ -1,6 +1,7 @@
 package com.crm.clinicCrm.client;
 
 
+import com.crm.clinicCrm.medicalRecord.RecordModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,6 +33,7 @@ public class ClientModel {
     private boolean isGDPR;
 //    field pentru consimtamantul medical
     private boolean isCONSENT;
+
 
     @Temporal(TemporalType.TIME)
     private Date createDateTime;

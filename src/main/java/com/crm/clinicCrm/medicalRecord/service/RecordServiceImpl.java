@@ -1,17 +1,20 @@
 package com.crm.clinicCrm.medicalRecord.service;
 
+import com.crm.clinicCrm.client.ClientModel;
 import com.crm.clinicCrm.client.ClientRepository;
 import com.crm.clinicCrm.helper.ServiceHelper;
 import com.crm.clinicCrm.medicalRecord.RecordDAO;
 import com.crm.clinicCrm.medicalRecord.RecordModel;
 import com.crm.clinicCrm.medicalRecord.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -38,13 +41,33 @@ public class RecordServiceImpl implements RecordService{
     }
 
     @Override
-    public ResponseEntity<?> addRecord(RecordModel recordModel, UUID clientID) {
-        return null;
+    public ResponseEntity<?> addRecord(RecordDAO recordDAO, UUID clientID) {
+        Optional<ClientModel > clientModelOptional = clientRepository.findById(clientID);
+
+        if(clientModelOptional.isPresent()){
+           RecordModel record = new RecordModel();
+           record.setComment(recordDAO.getComment());
+           record.setProcedure(recordDAO.getProcedure());
+           record.setClient(clientModelOptional.get());
+           recordRepository.save(record);
+
+            return new ResponseEntity<>(record, HttpStatus.OK);
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("add client first");
+        }
+
     }
 
     @Override
-    public RecordDAO findRecordByClientId(UUID clientId) {
-        return null;
+    public RecordModel findRecordByClientId(UUID clientId) {
+        Optional<ClientModel> clientModelOptional =clientRepository.findById(clientId);
+
+        if(clientModelOptional.isPresent()){
+            return recordRepository.findByClientId(clientId);
+
+        }else{
+            return null;
+        }
     }
 
     @Override
