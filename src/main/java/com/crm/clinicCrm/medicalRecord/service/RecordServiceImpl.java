@@ -33,11 +33,8 @@ public class RecordServiceImpl implements RecordService{
     }
 
     @Override
-    public List<RecordDAO> findAll() {
-        List<RecordDAO> allRecords = new ArrayList<>();
-        Iterable<RecordModel> records = recordRepository.findAll();
-        records.forEach(recordModel -> allRecords.add(serviceHelper.convertToRecordDAO(recordModel)));
-        return allRecords;
+    public List<RecordModel> findAll() {
+        return recordRepository.findAll();
     }
 
     @Override

@@ -21,7 +21,7 @@ public class RecordController {
     }
 
     @GetMapping("/all-records")
-    public List<RecordDAO> getAllRecords(){
+    public List<RecordModel> getAllRecords(){
         return recordService.findAll();
     }
 
