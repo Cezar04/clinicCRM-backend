@@ -76,10 +76,9 @@ public class RecordServiceImpl implements RecordService{
             RecordModel managedRecordEntity = recordModelOptional.get();
             managedRecordEntity.setProcedure(unmanagedRecordEntity.getProcedure());
             managedRecordEntity.setComment(unmanagedRecordEntity.getComment());
-//            nu sunt sigur daca trebuie sa iau si clientul
             recordRepository.save(managedRecordEntity);
 
-            return ResponseEntity.status(HttpStatus.OK).body(managedRecordEntity);
+            return ResponseEntity.status(HttpStatus.OK).body(managedRecordEntity +" Record updated");
         }else {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("record "+recordId+" not found");
         }
@@ -89,6 +88,16 @@ public class RecordServiceImpl implements RecordService{
 
     @Override
     public ResponseEntity<?> deleteRecord(UUID recordId) {
-        return null;
+        Optional<RecordModel> recordModelOptional = recordRepository.findById(recordId);
+
+        if (recordModelOptional.isPresent()){
+            RecordModel recordModel = recordModelOptional.get();
+            recordRepository.delete(recordModel);
+
+            return new ResponseEntity<>(recordModel, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("no record found to delete!", HttpStatus.NOT_FOUND);
+        }
     }
 }

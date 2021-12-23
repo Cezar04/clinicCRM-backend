@@ -69,7 +69,7 @@ public class ClientServiceImpl implements ClientService{
             managedClientEntity.setGDPR(unmanagedClientEntity.isGDPR());
             clientRepository.save(managedClientEntity);
 
-            return ResponseEntity.status(HttpStatus.OK).body("Client Updated");
+            return ResponseEntity.status(HttpStatus.OK).body(managedClientEntity +" Client Updated");
         }else {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("client "+ clientId+" not found");
         }

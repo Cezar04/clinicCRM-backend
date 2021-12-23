@@ -40,4 +40,10 @@ public class RecordController {
     public ResponseEntity<?> updateRecord(@RequestBody RecordDAO recordDAO, @PathVariable UUID recordId){
         return recordService.updateRecord(recordDAO,recordId);
     }
+
+    @DeleteMapping("/delete/{recordId}")
+    public ResponseEntity<?> deleteRecord(@PathVariable UUID recordId){
+        return recordService.deleteRecord(recordId);
+    }
+
 }
