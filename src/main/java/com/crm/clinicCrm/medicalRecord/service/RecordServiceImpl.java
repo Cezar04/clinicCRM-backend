@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -54,7 +55,6 @@ public class RecordServiceImpl implements RecordService{
         }
 
     }
-
     @Override
     public RecordModel findRecordByClientId(UUID clientId) {
         Optional<ClientModel> clientModelOptional =clientRepository.findById(clientId);
@@ -68,7 +68,22 @@ public class RecordServiceImpl implements RecordService{
     }
 
     @Override
-    public ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId, UUID clientId) {
+    public ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId) {
+        Optional<RecordModel> recordModelOptional = recordRepository.findById(recordId);
+        RecordModel unmanagedRecordEntity = serviceHelper.convertToRecordEntity(recordDAO);
+
+        if (recordModelOptional.isPresent()){
+            RecordModel managedRecordEntity = recordModelOptional.get();
+            managedRecordEntity.setProcedure(unmanagedRecordEntity.getProcedure());
+            managedRecordEntity.setComment(unmanagedRecordEntity.getComment());
+//            nu sunt sigur daca trebuie sa iau si clientul
+            recordRepository.save(managedRecordEntity);
+
+            return ResponseEntity.status(HttpStatus.OK).body(managedRecordEntity);
+        }else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("record "+recordId+" not found");
+        }
+
         return null;
     }
 

@@ -35,4 +35,9 @@ public class RecordController {
     public ResponseEntity<?> getRecordByClient(@PathVariable UUID clientId){
         return  new ResponseEntity<>(recordService.findRecordByClientId(clientId), HttpStatus.OK);
     }
+
+    @PutMapping("/edit/{recordId}")
+    public ResponseEntity<?> updateRecord(@RequestBody RecordDAO recordDAO, @PathVariable UUID recordId){
+        return recordService.updateRecord(recordDAO,recordId);
+    }
 }

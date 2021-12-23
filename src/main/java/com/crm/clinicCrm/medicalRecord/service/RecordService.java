@@ -12,7 +12,7 @@ public interface RecordService {
     ResponseEntity<?> addRecord(RecordDAO recordDAO, UUID clientID);
     RecordModel findRecordByClientId(UUID clientId);
 //    TODO add findRecordBy DoctorID
-    ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId, UUID clientId);
+    ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId);
     ResponseEntity<?> deleteRecord(UUID recordId);
 
 }
