@@ -27,7 +27,8 @@ public class RecordModel {
     private String procedure;
     private String comment;
 
-
+//TODO adauga field de confirmed--- ca info din record sunt bune
+//    TODO adauga fielduri cu alte date despre pacient
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")

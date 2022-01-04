@@ -28,6 +28,9 @@ public class RecordController {
 
     @PostMapping("/add/{clientId}")
     private ResponseEntity<?> addMedicalRecord(@RequestBody RecordDAO recordDAO,@PathVariable UUID clientId){
+        if (recordService.existsRecord(clientId)){
+            return ResponseEntity.badRequest().body("Record already exists");
+        }
         return recordService.addRecord(recordDAO,clientId);
     }
 

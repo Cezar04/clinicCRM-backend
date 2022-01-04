@@ -100,4 +100,9 @@ public class RecordServiceImpl implements RecordService{
             return new ResponseEntity<>("no record found to delete!", HttpStatus.NOT_FOUND);
         }
     }
+
+    @Override
+    public boolean existsRecord(UUID clientId) {
+        return recordRepository.existsByClientId(clientId);
+    }
 }

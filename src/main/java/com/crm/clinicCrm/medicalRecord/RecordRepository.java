@@ -13,5 +13,6 @@ public interface RecordRepository extends JpaRepository<RecordModel, UUID> {
     Optional<RecordModel> findById(UUID recordId);
     RecordModel findByClient(ClientModel client);
     RecordModel findByClientId(UUID clientId);
-    boolean existsByClient(ClientModel client);
+    boolean existsByClientId(UUID clientId);
+
 }

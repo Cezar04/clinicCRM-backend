@@ -14,5 +14,6 @@ public interface RecordService {
 //    TODO add findRecordBy DoctorID
     ResponseEntity<?> updateRecord(RecordDAO recordDAO, UUID recordId);
     ResponseEntity<?> deleteRecord(UUID recordId);
+    boolean existsRecord(UUID clientId);
 
 }
