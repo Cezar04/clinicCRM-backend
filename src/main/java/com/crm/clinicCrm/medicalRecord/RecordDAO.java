@@ -4,6 +4,7 @@ package com.crm.clinicCrm.medicalRecord;
 import com.crm.clinicCrm.client.ClientModel;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Builder
 public class RecordDAO {
     private UUID id;
-    private String procedure;
-    private String comment;
+    private List<String> procedure;
+    private List<String> comment;
 
 }

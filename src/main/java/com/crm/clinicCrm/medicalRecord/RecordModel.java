@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,11 +25,14 @@ public class RecordModel {
     @Column(name = "record_id")
     private UUID id;
 
-    private String procedure;
-    private String comment;
+    @ElementCollection
+    private List<String>  procedure;
+    @ElementCollection
+    private List<String> comment;
 
 //TODO adauga field de confirmed--- ca info din record sunt bune
 //    TODO adauga fielduri cu alte date despre pacient
+
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
