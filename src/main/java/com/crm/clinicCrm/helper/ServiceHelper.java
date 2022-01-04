@@ -66,6 +66,7 @@ public class ServiceHelper {
                 .id(recordModel.getId())
                 .comment(recordModel.getComment())
                 .procedure(recordModel.getProcedure())
+                .isConfirmed(recordModel.isConfirmed())
                 .build();
     }
 
@@ -73,6 +74,7 @@ public class ServiceHelper {
         return  RecordModel.builder()
                 .comment(recordDAO.getComment())
                 .procedure(recordDAO.getProcedure())
+                .isConfirmed(recordDAO.isConfirmed())
                 .build();
     }
 }

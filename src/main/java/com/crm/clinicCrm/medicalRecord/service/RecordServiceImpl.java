@@ -46,6 +46,7 @@ public class RecordServiceImpl implements RecordService{
            RecordModel record = new RecordModel();
            record.setComment(recordDAO.getComment());
            record.setProcedure(recordDAO.getProcedure());
+           record.setConfirmed(recordDAO.isConfirmed());
            record.setClient(clientModelOptional.get());
            recordRepository.save(record);
 

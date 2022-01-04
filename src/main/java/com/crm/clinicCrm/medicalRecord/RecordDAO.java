@@ -16,5 +16,6 @@ public class RecordDAO {
     private UUID id;
     private List<String> procedure;
     private List<String> comment;
+    private boolean isConfirmed;
 
 }

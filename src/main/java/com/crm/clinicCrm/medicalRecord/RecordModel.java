@@ -30,7 +30,10 @@ public class RecordModel {
     @ElementCollection
     private List<String> comment;
 
-//TODO adauga field de confirmed--- ca info din record sunt bune
+    private boolean isConfirmed;
+
+//TODO Bug nu merge sa updatezi confirmul
+//    TODO adauga data la care a fost facut fisa, si data la care a fost modificata
 //    TODO adauga fielduri cu alte date despre pacient
 
 
