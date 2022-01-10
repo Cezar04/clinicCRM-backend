@@ -29,11 +29,13 @@ public class ClientModel {
     private String lastName;
     private String email;
     private String phoneNumber;
+    private String sex;
+    private int age;
+    private String CNP;
+    private String address;
+    private String occupation;
 //    field pentru protectia datelor
     private boolean isGDPR;
-//    field pentru consimtamantul medical
-    private boolean isCONSENT;
-
 
     @Temporal(TemporalType.TIME)
     private Date createDateTime;

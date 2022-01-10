@@ -24,9 +24,13 @@ public class ServiceHelper {
                 .firstName(clientModel.getFirstName())
                 .lastName(clientModel.getLastName())
                 .email(clientModel.getEmail())
-                .isCONSENT(clientModel.isCONSENT())
-                .isGDPR(clientModel.isGDPR())
                 .phoneNumber(clientModel.getPhoneNumber())
+                .sex(clientModel.getSex())
+                .age(clientModel.getAge())
+                .CNP(clientModel.getCNP())
+                .address(clientModel.getAddress())
+                .occupation(clientModel.getOccupation())
+                .isGDPR(clientModel.isGDPR())
                 .build();
     }
 
@@ -34,9 +38,13 @@ public class ServiceHelper {
         return ClientModel.builder()
                 .firstName(clientDAO.getFirstName())
                 .lastName(clientDAO.getLastName())
-                .phoneNumber(clientDAO.getPhoneNumber())
                 .email(clientDAO.getEmail())
-                .isCONSENT(clientDAO.isCONSENT())
+                .phoneNumber(clientDAO.getPhoneNumber())
+                .sex(clientDAO.getSex())
+                .age(clientDAO.getAge())
+                .CNP(clientDAO.getCNP())
+                .address(clientDAO.getAddress())
+                .occupation(clientDAO.getOccupation())
                 .isGDPR(clientDAO.isGDPR())
                 .build();
     }

@@ -17,6 +17,11 @@ public class ClientDAO {
     @Email
     private String email;
     private String phoneNumber;
+    private String sex;
+    private int age;
+    private String CNP;
+    private String address;
+    private String occupation;
     private boolean isGDPR;
-    private boolean isCONSENT;
+
 }

@@ -61,12 +61,18 @@ public class ClientServiceImpl implements ClientService{
 
         if (clientModelOptional.isPresent()){
             ClientModel managedClientEntity = clientModelOptional.get();
-            managedClientEntity.setCONSENT(unmanagedClientEntity.isCONSENT());
-            managedClientEntity.setEmail(unmanagedClientEntity.getEmail());
+
             managedClientEntity.setFirstName(unmanagedClientEntity.getFirstName());
             managedClientEntity.setLastName(unmanagedClientEntity.getLastName());
+            managedClientEntity.setEmail(unmanagedClientEntity.getEmail());
             managedClientEntity.setPhoneNumber(unmanagedClientEntity.getPhoneNumber());
+            managedClientEntity.setSex(unmanagedClientEntity.getSex());
+            managedClientEntity.setAge(unmanagedClientEntity.getAge());
+            managedClientEntity.setCNP(unmanagedClientEntity.getCNP());
+            managedClientEntity.setAddress(unmanagedClientEntity.getAddress());
+            managedClientEntity.setOccupation(unmanagedClientEntity.getOccupation());
             managedClientEntity.setGDPR(unmanagedClientEntity.isGDPR());
+
             clientRepository.save(managedClientEntity);
 
             return ResponseEntity.status(HttpStatus.OK).body(managedClientEntity +" Client Updated");
