@@ -141,8 +141,8 @@ public class ChestionarEvalGenModal {
 //    TODO adauga semnatura ca jpg
 //    TODO posibil sa fie necesar sa modific altele in string
 
-//    @OneToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
-//    private ClientModel client;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    private ClientModel client;
 
 }

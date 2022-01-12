@@ -9,5 +9,7 @@ import java.util.UUID;
 @Repository
 public interface ChestionarEvalGenRepository extends JpaRepository<ChestionarEvalGenModal, UUID> {
     Optional<ChestionarEvalGenModal>findById(UUID chestionarEvalGenId);
-//    TODO add existsByClientId andFindByClientId
+    ChestionarEvalGenModal findByClientId(UUID clientId);
+    boolean existsByClientId(UUID clientId);
+
 }

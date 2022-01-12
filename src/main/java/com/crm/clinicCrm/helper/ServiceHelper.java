@@ -296,5 +296,4 @@ public class ServiceHelper {
                 .build();
     }
 
-//    TODO fa si convert to DAO
 }
