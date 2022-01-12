@@ -43,6 +43,7 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
         if (clientModelOptional.isPresent()){
             ChestionarEvalGenModal chestionar = serviceHelper.convertToChestionarEvalGenEntity(chestionarEvalGenDAO);
             chestionar.setCreateDateTime(new Date());
+            chestionar.setClient(clientModelOptional.get());
             chestionarEvalGenRepository.save(chestionar);
 
             return new ResponseEntity<>(chestionar, HttpStatus.OK);
