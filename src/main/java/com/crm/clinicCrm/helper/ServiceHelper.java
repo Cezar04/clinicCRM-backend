@@ -32,7 +32,6 @@ public class ServiceHelper {
                 .CNP(clientModel.getCNP())
                 .address(clientModel.getAddress())
                 .occupation(clientModel.getOccupation())
-                .isGDPR(clientModel.isGDPR())
                 .build();
     }
 
@@ -47,7 +46,6 @@ public class ServiceHelper {
                 .CNP(clientDAO.getCNP())
                 .address(clientDAO.getAddress())
                 .occupation(clientDAO.getOccupation())
-                .isGDPR(clientDAO.isGDPR())
                 .build();
     }
 

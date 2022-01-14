@@ -35,7 +35,6 @@ public class ClientModel {
     private String address;
     private String occupation;
 //    field pentru protectia datelor
-    private boolean isGDPR;
 
     @Temporal(TemporalType.TIME)
     private Date createDateTime;

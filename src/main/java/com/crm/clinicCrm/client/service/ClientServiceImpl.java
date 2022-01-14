@@ -71,7 +71,7 @@ public class ClientServiceImpl implements ClientService{
             managedClientEntity.setCNP(unmanagedClientEntity.getCNP());
             managedClientEntity.setAddress(unmanagedClientEntity.getAddress());
             managedClientEntity.setOccupation(unmanagedClientEntity.getOccupation());
-            managedClientEntity.setGDPR(unmanagedClientEntity.isGDPR());
+
 
             clientRepository.save(managedClientEntity);
 
