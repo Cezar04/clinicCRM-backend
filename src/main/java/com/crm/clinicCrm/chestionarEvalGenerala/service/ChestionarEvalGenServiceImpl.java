@@ -55,7 +55,13 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
 
     @Override
     public ChestionarEvalGenModal findChestionarEvalGenByClientId(UUID clientId) {
-        return null;
+        Optional<ClientModel> clientModelOptional= clientRepository.findById(clientId);
+
+        if (clientModelOptional.isPresent()){
+            return chestionarEvalGenRepository.findByClientId(clientId);
+        }else {
+            return null;
+        }
     }
 
     @Override
@@ -65,11 +71,21 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
 
     @Override
     public ResponseEntity<?> deleteChestionarEvalGen(UUID chestionarEvalGenId) {
-        return null;
+        Optional<ChestionarEvalGenModal> chestionarEvalGenModal = chestionarEvalGenRepository.findById(chestionarEvalGenId);
+
+        if(chestionarEvalGenModal.isPresent()){
+            ChestionarEvalGenModal chestionar = chestionarEvalGenModal.get();
+            chestionarEvalGenRepository.delete(chestionar);
+
+            return new ResponseEntity<>(chestionar,HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>("no record found to delete!", HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @Override
     public boolean existChestionarEvalGen(UUID clientId) {
-        return false;
+        return chestionarEvalGenRepository.existsByClientId(clientId);
     }
 }
