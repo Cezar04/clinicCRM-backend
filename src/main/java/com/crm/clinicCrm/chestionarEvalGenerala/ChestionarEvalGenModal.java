@@ -42,6 +42,8 @@ public class ChestionarEvalGenModal {
     private String afectiuneaTrata;
 
     private boolean afectiuneCronica;
+    private boolean boliRenale;
+    private boolean insuficientaRenala;
     private String boliProfesionale;
     private boolean anginaPectorala;
     private boolean infarctMiocardic;
@@ -55,7 +57,9 @@ public class ChestionarEvalGenModal {
     private boolean tromboFlebite;
     private boolean embolii;
     private boolean hipertensiuneArteriala;
+    private boolean hipotensiuneArteriala;
     private boolean alteleBoliVasculare;
+    private boolean sida;
     private boolean TBC;
     private boolean bronsitaCronica;
     private boolean astm;

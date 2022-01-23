@@ -22,6 +22,7 @@ public class ClientDAO {
     private String CNP;
     private String address;
     private String occupation;
+    private String birthDate;
 
 
 }

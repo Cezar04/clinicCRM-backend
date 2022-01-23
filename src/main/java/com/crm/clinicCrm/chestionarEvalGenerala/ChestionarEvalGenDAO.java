@@ -31,6 +31,8 @@ public class ChestionarEvalGenDAO {
 
     private boolean afectiuneCronica;
     private String boliProfesionale;
+    private boolean insuficientaRenala;
+    private boolean boliRenale;
     private boolean anginaPectorala;
     private boolean infarctMiocardic;
     private boolean valvulopatii;
@@ -44,6 +46,8 @@ public class ChestionarEvalGenDAO {
     private boolean embolii;
     private boolean hipertensiuneArteriala;
     private boolean alteleBoliVasculare;
+    private boolean hipotensiuneArteriala;
+    private boolean sida;
     private boolean TBC;
     private boolean bronsitaCronica;
     private boolean astm;

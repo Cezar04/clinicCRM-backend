@@ -11,8 +11,6 @@ import com.crm.clinicCrm.medicalRecord.RecordDAO;
 import com.crm.clinicCrm.medicalRecord.RecordModel;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.UUID;
 
 /**
  * here we do the converting from the DAO to entity and vice-versa
@@ -32,6 +30,7 @@ public class ServiceHelper {
                 .CNP(clientModel.getCNP())
                 .address(clientModel.getAddress())
                 .occupation(clientModel.getOccupation())
+                .birthDate(clientModel.getBirthDate())
                 .build();
     }
 
@@ -46,6 +45,7 @@ public class ServiceHelper {
                 .CNP(clientDAO.getCNP())
                 .address(clientDAO.getAddress())
                 .occupation(clientDAO.getOccupation())
+                .birthDate(clientDAO.getBirthDate())
                 .build();
     }
 
@@ -152,6 +152,9 @@ public class ServiceHelper {
                 .hepatitaC(chestionarEvalGenModal.isHepatitaC())
                 .hernieHiatala(chestionarEvalGenModal.isHernieHiatala())
                 .hipertensiuneArteriala(chestionarEvalGenModal.isHipertensiuneArteriala())
+                .hipotensiuneArteriala(chestionarEvalGenModal.isHipotensiuneArteriala())
+                .boliRenale(chestionarEvalGenModal.isBoliRenale())
+                .insuficientaRenala(chestionarEvalGenModal.isInsuficientaRenala())
                 .hipertiroidism(chestionarEvalGenModal.isHipertiroidism())
                 .HIV(chestionarEvalGenModal.isHIV())
                 .id(chestionarEvalGenModal.getId())
@@ -186,6 +189,7 @@ public class ServiceHelper {
                 .urmatiTratament(chestionarEvalGenModal.isUrmatiTratament())
                 .valvulopatii(chestionarEvalGenModal.isValvulopatii())
                 .varice(chestionarEvalGenModal.isVarice())
+                .sida(chestionarEvalGenModal.isSida())
                 .build();
     }
 
@@ -231,8 +235,6 @@ public class ServiceHelper {
                 .consumatiDroguri(chestionarEvalGenDAO.isConsumatiDroguri())
                 .cuAnestezieLocala(chestionarEvalGenDAO.isCuAnestezieLocala())
                 .cuAnestezieLocalaSiSedareInhalatorie(chestionarEvalGenDAO.isCuAnestezieLocalaSiSedareInhalatorie())
-//                aici e ceva dubios
-//                .createDateTime(new Date())
                 .cuAnestezieLocalaSiSedareIntravenoasa(chestionarEvalGenDAO.isCuAnestezieLocalaSiSedareIntravenoasa())
                 .cuCeOcazie(chestionarEvalGenDAO.getCuCeOcazie())
                 .dataUltimeiMenstruatii(chestionarEvalGenDAO.getDataUltimeiMenstruatii())
@@ -291,6 +293,10 @@ public class ServiceHelper {
                 .urmatiTratament(chestionarEvalGenDAO.isUrmatiTratament())
                 .valvulopatii(chestionarEvalGenDAO.isValvulopatii())
                 .varice(chestionarEvalGenDAO.isVarice())
+                .hipotensiuneArteriala(chestionarEvalGenDAO.isHipotensiuneArteriala())
+                .boliRenale(chestionarEvalGenDAO.isBoliRenale())
+                .insuficientaRenala(chestionarEvalGenDAO.isInsuficientaRenala())
+                .sida(chestionarEvalGenDAO.isSida())
                 .build();
     }
 

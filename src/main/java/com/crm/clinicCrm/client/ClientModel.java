@@ -34,8 +34,10 @@ public class ClientModel {
     private String CNP;
     private String address;
     private String occupation;
+    private String birthDate;
 //    field pentru protectia datelor
 
+//    TODO adauga data nasterii
     @Temporal(TemporalType.TIME)
     private Date createDateTime;
 }
