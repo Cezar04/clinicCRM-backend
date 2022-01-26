@@ -85,6 +85,7 @@ public class ChestionarEvalGenDAO {
     private boolean boliInfectioase;
     private boolean hepatitaB;
     private boolean hepatitaC;
+    private boolean hepatitaViralaCronica;
     private boolean HIV;
     private String alteBoliCronice;
 

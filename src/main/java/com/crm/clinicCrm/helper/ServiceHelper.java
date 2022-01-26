@@ -190,6 +190,7 @@ public class ServiceHelper {
                 .valvulopatii(chestionarEvalGenModal.isValvulopatii())
                 .varice(chestionarEvalGenModal.isVarice())
                 .sida(chestionarEvalGenModal.isSida())
+                .hepatitaViralaCronica(chestionarEvalGenModal.isHepatitaViralaCronica())
                 .build();
     }
 
@@ -297,6 +298,7 @@ public class ServiceHelper {
                 .boliRenale(chestionarEvalGenDAO.isBoliRenale())
                 .insuficientaRenala(chestionarEvalGenDAO.isInsuficientaRenala())
                 .sida(chestionarEvalGenDAO.isSida())
+                .hepatitaViralaCronica(chestionarEvalGenDAO.isHepatitaViralaCronica())
                 .build();
     }
 
