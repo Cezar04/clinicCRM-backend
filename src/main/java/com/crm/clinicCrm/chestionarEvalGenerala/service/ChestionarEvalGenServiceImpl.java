@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +43,7 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
 
         if (clientModelOptional.isPresent()){
             ChestionarEvalGenModal chestionar = serviceHelper.convertToChestionarEvalGenEntity(chestionarEvalGenDAO);
-            chestionar.setCreateDateTime(new Date());
+            chestionar.setCreateDateTime(LocalDate.now());
             chestionar.setClient(clientModelOptional.get());
             chestionarEvalGenRepository.save(chestionar);
 

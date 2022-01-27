@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -140,8 +141,8 @@ public class ChestionarEvalGenModal {
 
     private String mentionari;
 
-    @Temporal(TemporalType.TIME)
-    private Date createDateTime;
+
+    private LocalDate createDateTime;
 
 //    TODO adauga semnatura ca jpg
 //    TODO posibil sa fie necesar sa modific altele in string
