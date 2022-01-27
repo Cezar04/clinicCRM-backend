@@ -67,6 +67,136 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
 
     @Override
     public ResponseEntity<?> updateChestionarEvalGen(ChestionarEvalGenDAO chestionarEvalGenDAO, UUID chestionarEvalGenId) {
+        Optional<ChestionarEvalGenModal> chestionarEvalGenModalOptional = chestionarEvalGenRepository.findById(chestionarEvalGenId);
+        ChestionarEvalGenModal unmanagedChestionarEvalGen = serviceHelper.convertToChestionarEvalGenEntity(chestionarEvalGenDAO);
+
+        if(chestionarEvalGenModalOptional.isPresent()){
+            ChestionarEvalGenModal managedChestionarEvalGen = chestionarEvalGenModalOptional.get();
+
+            managedChestionarEvalGen.setGravida(unmanagedChestionarEvalGen.isGravida());
+            managedChestionarEvalGen.setNrSaptamaniSarcina(unmanagedChestionarEvalGen.getNrSaptamaniSarcina());
+            managedChestionarEvalGen.setDataUltimeiMenstruatii(unmanagedChestionarEvalGen.getDataUltimeiMenstruatii());
+
+            managedChestionarEvalGen.setAlergiiSauIntoleranta(unmanagedChestionarEvalGen.isAlergiiSauIntoleranta());
+            managedChestionarEvalGen.setAlergii(unmanagedChestionarEvalGen.getAlergii());
+            managedChestionarEvalGen.setIntoleranta(unmanagedChestionarEvalGen.getIntoleranta());
+
+            managedChestionarEvalGen.setUrmatiTratament(unmanagedChestionarEvalGen.isUrmatiTratament());
+            managedChestionarEvalGen.setProdus(unmanagedChestionarEvalGen.getProdus());
+            managedChestionarEvalGen.setDozaTratament(unmanagedChestionarEvalGen.getDozaTratament());
+
+            managedChestionarEvalGen.setTratamentAntibiotic(unmanagedChestionarEvalGen.isTratamentAntibiotic());
+            managedChestionarEvalGen.setAntibioticul(unmanagedChestionarEvalGen.getAntibioticul());
+            managedChestionarEvalGen.setDozaAntibiotic(unmanagedChestionarEvalGen.getDozaAntibiotic());
+            managedChestionarEvalGen.setAfectiuneaTrata(unmanagedChestionarEvalGen.getAfectiuneaTrata());
+
+            managedChestionarEvalGen.setAfectiuneCronica(unmanagedChestionarEvalGen.isAfectiuneCronica());
+            managedChestionarEvalGen.setBoliRenale(unmanagedChestionarEvalGen.isBoliRenale());
+            managedChestionarEvalGen.setInsuficientaRenala(unmanagedChestionarEvalGen.isInsuficientaRenala());
+            managedChestionarEvalGen.setBoliProfesionale(unmanagedChestionarEvalGen.getBoliProfesionale());
+            managedChestionarEvalGen.setAnginaPectorala(unmanagedChestionarEvalGen.isAnginaPectorala());
+            managedChestionarEvalGen.setInfarctMiocardic(unmanagedChestionarEvalGen.isInfarctMiocardic());
+            managedChestionarEvalGen.setValvulopatii(unmanagedChestionarEvalGen.isValvulopatii());
+            managedChestionarEvalGen.setEndocardita(unmanagedChestionarEvalGen.isEndocardita());
+            managedChestionarEvalGen.setDurere(unmanagedChestionarEvalGen.isDurere());
+            managedChestionarEvalGen.setSufocare(unmanagedChestionarEvalGen.isSufocare());
+            managedChestionarEvalGen.setAlteleBoliInima(unmanagedChestionarEvalGen.isAlteleBoliInima());
+            managedChestionarEvalGen.setArteriopatii(unmanagedChestionarEvalGen.isArteriopatii());
+            managedChestionarEvalGen.setVarice(unmanagedChestionarEvalGen.isVarice());
+            managedChestionarEvalGen.setTromboFlebite(unmanagedChestionarEvalGen.isTromboFlebite());
+            managedChestionarEvalGen.setEmbolii(unmanagedChestionarEvalGen.isEmbolii());
+            managedChestionarEvalGen.setHipertensiuneArteriala(unmanagedChestionarEvalGen.isHipertensiuneArteriala());
+            managedChestionarEvalGen.setHipotensiuneArteriala(unmanagedChestionarEvalGen.isHipotensiuneArteriala());
+            managedChestionarEvalGen.setAlteleBoliVasculare(unmanagedChestionarEvalGen.isAlteleBoliVasculare());
+            managedChestionarEvalGen.setSida(unmanagedChestionarEvalGen.isSida());
+            managedChestionarEvalGen.setTBC(unmanagedChestionarEvalGen.isTBC());
+            managedChestionarEvalGen.setBronsitaCronica(unmanagedChestionarEvalGen.isBronsitaCronica());
+            managedChestionarEvalGen.setAstm(unmanagedChestionarEvalGen.isAstm());
+            managedChestionarEvalGen.setSilicoza(unmanagedChestionarEvalGen.isSilicoza());
+            managedChestionarEvalGen.setAlteleBoliPlamani(unmanagedChestionarEvalGen.isAlteleBoliPlamani());
+            managedChestionarEvalGen.setGastrita(unmanagedChestionarEvalGen.isGastrita());
+            managedChestionarEvalGen.setUlcer(unmanagedChestionarEvalGen.isUlcer());
+            managedChestionarEvalGen.setRefluxEsofagian(unmanagedChestionarEvalGen.isRefluxEsofagian());
+            managedChestionarEvalGen.setHernieHiatala(unmanagedChestionarEvalGen.isHernieHiatala());
+            managedChestionarEvalGen.setAlteleBoliDigestive(unmanagedChestionarEvalGen.isAlteleBoliDigestive());
+            managedChestionarEvalGen.setHepatita(unmanagedChestionarEvalGen.isHepatita());
+            managedChestionarEvalGen.setCiroza(unmanagedChestionarEvalGen.isCiroza());
+            managedChestionarEvalGen.setAlteleBoliHepatice(unmanagedChestionarEvalGen.isAlteleBoliHepatice());
+            managedChestionarEvalGen.setDiabetZaharat(unmanagedChestionarEvalGen.isDiabetZaharat());
+            managedChestionarEvalGen.setGuta(unmanagedChestionarEvalGen.isGuta());
+            managedChestionarEvalGen.setAlteleBoliMetabolice(unmanagedChestionarEvalGen.isAlteleBoliMetabolice());
+            managedChestionarEvalGen.setHipertiroidism(unmanagedChestionarEvalGen.isHipertiroidism());
+            managedChestionarEvalGen.setFeocromocitom(unmanagedChestionarEvalGen.isFeocromocitom());
+            managedChestionarEvalGen.setAlteleBoliEndocrine(unmanagedChestionarEvalGen.isAlteleBoliEndocrine());
+            managedChestionarEvalGen.setEpilepsie(unmanagedChestionarEvalGen.isEpilepsie());
+            managedChestionarEvalGen.setAlteleBoliNeurologice(unmanagedChestionarEvalGen.isAlteleBoliNeurologice());
+            managedChestionarEvalGen.setAfectiuniColoana(unmanagedChestionarEvalGen.isAfectiuniColoana());
+            managedChestionarEvalGen.setAlteleAfectiuniSchelet(unmanagedChestionarEvalGen.isAlteleAfectiuniSchelet());
+            managedChestionarEvalGen.setDepresii(unmanagedChestionarEvalGen.isDepresii());
+            managedChestionarEvalGen.setFobii(unmanagedChestionarEvalGen.isFobii());
+            managedChestionarEvalGen.setAlteleBoliPsihice(unmanagedChestionarEvalGen.isAlteleBoliPsihice());
+            managedChestionarEvalGen.setSangeratiUsor(unmanagedChestionarEvalGen.isSangeratiUsor());
+            managedChestionarEvalGen.setHemofilie(unmanagedChestionarEvalGen.isHemofilie());
+            managedChestionarEvalGen.setAnemie(unmanagedChestionarEvalGen.isAnemie());
+            managedChestionarEvalGen.setLeucemie(unmanagedChestionarEvalGen.isLeucemie());
+            managedChestionarEvalGen.setLimfom(unmanagedChestionarEvalGen.isLimfom());
+            managedChestionarEvalGen.setAlteleBoliHematologice(unmanagedChestionarEvalGen.isAlteleBoliHematologice());
+            managedChestionarEvalGen.setAlteBoli(unmanagedChestionarEvalGen.getAlteBoli());
+
+            managedChestionarEvalGen.setBoliInfectioase(unmanagedChestionarEvalGen.isBoliInfectioase());
+            managedChestionarEvalGen.setHepatitaB(unmanagedChestionarEvalGen.isHepatitaB());
+            managedChestionarEvalGen.setHepatitaC(unmanagedChestionarEvalGen.isHepatitaC());
+            managedChestionarEvalGen.setHepatitaViralaCronica(unmanagedChestionarEvalGen.isHepatitaViralaCronica());
+            managedChestionarEvalGen.setHIV(unmanagedChestionarEvalGen.isHIV());
+            managedChestionarEvalGen.setAlteBoliCronice(unmanagedChestionarEvalGen.getAlteBoliCronice());
+
+            managedChestionarEvalGen.setAtiPrimitSange(unmanagedChestionarEvalGen.isAtiPrimitSange());
+            managedChestionarEvalGen.setCuCeOcazie(unmanagedChestionarEvalGen.getCuCeOcazie());
+
+            managedChestionarEvalGen.setTratamenteStomatologice(unmanagedChestionarEvalGen.isTratamenteStomatologice());
+            managedChestionarEvalGen.setFaraAnestezie(unmanagedChestionarEvalGen.isFaraAnestezie());
+            managedChestionarEvalGen.setCuAnestezieLocala(unmanagedChestionarEvalGen.isCuAnestezieLocala());
+            managedChestionarEvalGen.setCuAnestezieLocalaSiSedareInhalatorie(unmanagedChestionarEvalGen.isCuAnestezieLocalaSiSedareInhalatorie());
+            managedChestionarEvalGen.setCuAnestezieLocalaSiSedareIntravenoasa(unmanagedChestionarEvalGen.isCuAnestezieLocalaSiSedareIntravenoasa());
+            managedChestionarEvalGen.setAnestezieGenerala(unmanagedChestionarEvalGen.isAnestezieGenerala());
+
+            managedChestionarEvalGen.setAuAparutAccidenteLaStomatologie(unmanagedChestionarEvalGen.isAuAparutAccidenteLaStomatologie());
+            managedChestionarEvalGen.setLesin(unmanagedChestionarEvalGen.isLesin());
+            managedChestionarEvalGen.setGreata(unmanagedChestionarEvalGen.isGreata());
+            managedChestionarEvalGen.setAlergiiStomatoligice(unmanagedChestionarEvalGen.isAlergiiStomatoligice());
+            managedChestionarEvalGen.setAlteleStomatologice(unmanagedChestionarEvalGen.isAlteleStomatologice());
+
+            managedChestionarEvalGen.setTratamenteChirugicale(unmanagedChestionarEvalGen.isTratamenteChirugicale());
+            managedChestionarEvalGen.setInterventii(unmanagedChestionarEvalGen.getInterventii());
+            managedChestionarEvalGen.setAnestezieLocoRegionala(unmanagedChestionarEvalGen.isAnestezieLocoRegionala());
+            managedChestionarEvalGen.setSedareInhalatorie(unmanagedChestionarEvalGen.isSedareInhalatorie());
+            managedChestionarEvalGen.setSedareIntravenoasa(unmanagedChestionarEvalGen.isSedareIntravenoasa());
+            managedChestionarEvalGen.setSedareGenerala(unmanagedChestionarEvalGen.isSedareGenerala());
+
+            managedChestionarEvalGen.setFumati(unmanagedChestionarEvalGen.isFumati());
+            managedChestionarEvalGen.setCateTigari(unmanagedChestionarEvalGen.getCateTigari());
+            managedChestionarEvalGen.setCatiAni(unmanagedChestionarEvalGen.getCatiAni());
+
+            managedChestionarEvalGen.setBauturiAlcoolice(unmanagedChestionarEvalGen.isBauturiAlcoolice());
+            managedChestionarEvalGen.setTipBauturi(unmanagedChestionarEvalGen.getTipBauturi());
+            managedChestionarEvalGen.setCantitate(unmanagedChestionarEvalGen.getCantitate());
+            managedChestionarEvalGen.setProblemeDacaIntrerupetiConsumul(unmanagedChestionarEvalGen.isProblemeDacaIntrerupetiConsumul());
+
+            managedChestionarEvalGen.setConsumatiDroguri(unmanagedChestionarEvalGen.isConsumatiDroguri());
+            managedChestionarEvalGen.setTipDroguri(unmanagedChestionarEvalGen.getTipDroguri());
+            managedChestionarEvalGen.setCantitateDroguri(unmanagedChestionarEvalGen.getCantitateDroguri());
+            managedChestionarEvalGen.setSuntetiDependent(unmanagedChestionarEvalGen.isSuntetiDependent());
+
+            managedChestionarEvalGen.setMentionari(unmanagedChestionarEvalGen.getMentionari());
+
+            chestionarEvalGenRepository.save(managedChestionarEvalGen);
+
+            return ResponseEntity.status(HttpStatus.OK).body(managedChestionarEvalGen+ "eval gen created");
+
+
+        }else{
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("chestionar "+ chestionarEvalGenId+" not found");
+        }
         return null;
     }
 

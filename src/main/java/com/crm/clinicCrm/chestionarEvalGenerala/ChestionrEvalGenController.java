@@ -40,6 +40,10 @@ public class ChestionrEvalGenController {
         }
         return chestionarEvalGenService.addChestionrEvalGenService(chestionarEvalGenDAO, clientId);
     }
+    @PutMapping("edit/{chestionarId}")
+    public ResponseEntity<?> updateChestionarEvalGen(@RequestBody ChestionarEvalGenDAO chestionarEvalGenDAO, @PathVariable UUID chestionarId){
+        return chestionarEvalGenService.updateChestionarEvalGen(chestionarEvalGenDAO,chestionarId);
+    }
 
     @DeleteMapping("/delete/{chestionarEvalGenId}")
     public ResponseEntity<?> deleteChestionarEvalGen(@PathVariable UUID chestionarEvalGenId){
