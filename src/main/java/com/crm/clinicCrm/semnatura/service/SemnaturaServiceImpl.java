@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @Transactional
-public class SemnaturaServiceImpl {
+public class SemnaturaServiceImpl implements SemnaturaService{
 
     private SemnaturaRepository semnaturaRepository;
 
@@ -39,5 +39,7 @@ public class SemnaturaServiceImpl {
         return new ResponseEntity<>(semnatura, HttpStatus.OK);
     }
 
-//    public SemnaturaModel getSemnaturaById(UUID )
+    public SemnaturaModel getSemnaturaByChestionarEvalGenId(UUID ChestionarEvalGenId){
+        return  semnaturaRepository.findByChestionarEvalGenId(ChestionarEvalGenId);
+    }
 }

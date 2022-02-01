@@ -1,7 +1,9 @@
 package com.crm.clinicCrm.semnatura;
 
+import com.crm.clinicCrm.semnatura.service.SemnaturaService;
 import com.crm.clinicCrm.semnatura.service.SemnaturaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +17,7 @@ import java.util.UUID;
 @RequestMapping("/api/semnatura")
 public class SemnaturaController {
 
-    private SemnaturaServiceImpl semnaturaServiceImpl;
+    private SemnaturaService semnaturaServiceImpl;
 
     @Autowired
     public SemnaturaController(SemnaturaServiceImpl semnaturaServiceImpl) {
@@ -27,4 +29,10 @@ public class SemnaturaController {
     public ResponseEntity<?> addSemnatura(@RequestParam("file")MultipartFile file, @PathVariable UUID chestionarEvalGenID,@PathVariable UUID clientId) throws IOException {
         return semnaturaServiceImpl.store(file,chestionarEvalGenID,clientId);
     }
+
+    @GetMapping("/{chestionarEvalGenId}")
+    public ResponseEntity<?> getSemnaturaByChestionarId(@PathVariable UUID chestionarEvalGenId){
+        return new ResponseEntity<>(semnaturaServiceImpl.getSemnaturaByChestionarEvalGenId(chestionarEvalGenId), HttpStatus.OK);
+    }
+
 }
