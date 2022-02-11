@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public interface SemnaturaService {
-    ResponseEntity<?> store(MultipartFile file, UUID chestionarEvalGenId, UUID clientId) throws IOException;
+    ResponseEntity<?> store(String file, UUID chestionarEvalGenId, UUID clientId) throws IOException;
     SemnaturaModel getSemnaturaByChestionarEvalGenId(UUID ChestionarEvalGenId);
+    Boolean existsSemnatura(UUID chestionarEvalGenId);
 }

@@ -6,4 +6,5 @@ import java.util.UUID;
 
 public interface SemnaturaRepository extends JpaRepository<SemnaturaModel, UUID> {
     SemnaturaModel findByChestionarEvalGenId(UUID chestionarEvalGenId);
+    boolean existsByChestionarEvalGenId(UUID chestionarEvalGenId);
 }

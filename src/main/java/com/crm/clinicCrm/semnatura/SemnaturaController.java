@@ -26,7 +26,10 @@ public class SemnaturaController {
 
 
     @PostMapping("/add/{chestionarEvalGenID}/{clientId}")
-    public ResponseEntity<?> addSemnatura(@RequestParam("file")MultipartFile file, @PathVariable UUID chestionarEvalGenID,@PathVariable UUID clientId) throws IOException {
+    public ResponseEntity<?> addSemnatura(@RequestBody String file, @PathVariable UUID chestionarEvalGenID,@PathVariable UUID clientId) throws IOException {
+        if (semnaturaServiceImpl.existsSemnatura(chestionarEvalGenID)){
+            return  ResponseEntity.badRequest().body("Semnatura already exists");
+        }
         return semnaturaServiceImpl.store(file,chestionarEvalGenID,clientId);
     }
 

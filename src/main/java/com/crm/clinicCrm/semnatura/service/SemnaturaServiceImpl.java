@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -26,11 +27,12 @@ public class SemnaturaServiceImpl implements SemnaturaService{
         this.semnaturaRepository = semnaturaRepository;
     }
 
-    public ResponseEntity<?> store(MultipartFile file, UUID chestionarEvalGenId, UUID clientId) throws IOException {
-        String fileName = file.getOriginalFilename();
+    public ResponseEntity<?> store(String file, UUID chestionarEvalGenId, UUID clientId) throws IOException {
+
+        String fileName = "semnatura";
         SemnaturaModel semnatura = new SemnaturaModel();
         semnatura.setNumeSemnatura(fileName);
-        semnatura.setData(file.getBytes());
+        semnatura.setData(file);
         semnatura.setClientId(clientId);
         semnatura.setChestionarEvalGenId(chestionarEvalGenId);
 
@@ -41,5 +43,10 @@ public class SemnaturaServiceImpl implements SemnaturaService{
 
     public SemnaturaModel getSemnaturaByChestionarEvalGenId(UUID ChestionarEvalGenId){
         return  semnaturaRepository.findByChestionarEvalGenId(ChestionarEvalGenId);
+    }
+
+    @Override
+    public Boolean existsSemnatura(UUID chestionarEvalGenId) {
+        return semnaturaRepository.existsByChestionarEvalGenId(chestionarEvalGenId);
     }
 }
