@@ -2,6 +2,7 @@ package com.crm.clinicCrm.chestionarEvalGenerala;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -127,4 +128,5 @@ public class ChestionarEvalGenDAO {
     private boolean suntetiDependent;
 
     private String mentionari;
+    private LocalDate createDateTime;
 }

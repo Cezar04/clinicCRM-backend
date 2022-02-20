@@ -89,6 +89,7 @@ public class ServiceHelper {
     public ChestionarEvalGenDAO convertToChestionarEvalGenDAO(ChestionarEvalGenModal chestionarEvalGenModal){
         return ChestionarEvalGenDAO.builder()
                 .id(chestionarEvalGenModal.getId())
+                .createDateTime(chestionarEvalGenModal.getCreateDateTime())
                 .afectiuneaTrata(chestionarEvalGenModal.getAfectiuneaTrata())
                 .alergii(chestionarEvalGenModal.getAlergii())
                 .afectiuneCronica(chestionarEvalGenModal.isAfectiuneCronica())
@@ -301,6 +302,7 @@ public class ServiceHelper {
                 .insuficientaRenala(chestionarEvalGenDAO.isInsuficientaRenala())
                 .sida(chestionarEvalGenDAO.isSida())
                 .hepatitaViralaCronica(chestionarEvalGenDAO.isHepatitaViralaCronica())
+
                 .build();
     }
 
