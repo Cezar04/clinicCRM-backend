@@ -55,14 +55,10 @@ public class ChestionarEvalGenServiceImpl implements ChestionarEvalGenService{
     }
 
     @Override
-    public ChestionarEvalGenModal findChestionarEvalGenByClientId(UUID clientId) {
-        Optional<ClientModel> clientModelOptional= clientRepository.findById(clientId);
-
-        if (clientModelOptional.isPresent()){
-            return chestionarEvalGenRepository.findByClientId(clientId);
-        }else {
-            return null;
-        }
+    public ResponseEntity<?> findChestionarEvalGenByClientId(UUID clientId) {
+       ChestionarEvalGenModal chestionarEvalGenModal = chestionarEvalGenRepository.findByClientId(clientId);
+       ChestionarEvalGenDAO  chestionar= serviceHelper.convertToChestionarEvalGenDAO( chestionarEvalGenModal);
+       return new ResponseEntity<>(chestionar, HttpStatus.OK);
     }
 
     @Override

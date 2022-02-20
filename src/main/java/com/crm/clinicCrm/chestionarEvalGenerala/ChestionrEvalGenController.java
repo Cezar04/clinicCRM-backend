@@ -30,7 +30,7 @@ public class ChestionrEvalGenController {
 
     @GetMapping("/{clientId}")
      public ResponseEntity<?> getChestionarEvalGenByClient(@PathVariable UUID clientId){
-        return new ResponseEntity<>(chestionarEvalGenService.findChestionarEvalGenByClientId(clientId), HttpStatus.OK);
+        return chestionarEvalGenService.findChestionarEvalGenByClientId(clientId);
     }
 
     @PostMapping("/add/{clientId}")

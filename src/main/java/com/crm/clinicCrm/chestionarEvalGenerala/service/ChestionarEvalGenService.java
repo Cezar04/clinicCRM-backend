@@ -10,7 +10,7 @@ import java.util.UUID;
 public interface ChestionarEvalGenService {
     List<ChestionarEvalGenModal> findAll();
     ResponseEntity<?> addChestionrEvalGenService(ChestionarEvalGenDAO chestionarEvalGenDAO, UUID clientId);
-    ChestionarEvalGenModal findChestionarEvalGenByClientId(UUID clientId);
+    ResponseEntity<?> findChestionarEvalGenByClientId(UUID clientId);
     ResponseEntity<?> updateChestionarEvalGen(ChestionarEvalGenDAO chestionarEvalGenDAO, UUID chestionarEvalGenId);
     ResponseEntity<?> deleteChestionarEvalGen(UUID chestionarEvalGenId);
     boolean existChestionarEvalGen(UUID clientId);
