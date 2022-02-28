@@ -14,7 +14,7 @@ public class ChestionarEvalGenDAO {
     private UUID id;
 
     private boolean isGravida;
-    private int nrSaptamaniSarcina;
+    private String nrSaptamaniSarcina;
     private String dataUltimeiMenstruatii;
 
     private boolean isAlergiiSauIntoleranta;
@@ -31,56 +31,56 @@ public class ChestionarEvalGenDAO {
     private String afectiuneaTrata;
 
     private boolean afectiuneCronica;
-    private String boliProfesionale;
-    private boolean insuficientaRenala;
     private boolean boliRenale;
+    private boolean insuficientaRenala;
+    private String boliProfesionale;
     private boolean anginaPectorala;
     private boolean infarctMiocardic;
     private boolean valvulopatii;
     private boolean endocardita;
     private boolean durere;
     private boolean sufocare;
-    private boolean alteleBoliInima;
+    private String alteleBoliInima;
     private boolean arteriopatii;
     private boolean varice;
     private boolean tromboFlebite;
     private boolean embolii;
     private boolean hipertensiuneArteriala;
-    private boolean alteleBoliVasculare;
     private boolean hipotensiuneArteriala;
+    private String alteleBoliVasculare;
     private boolean sida;
     private boolean TBC;
     private boolean bronsitaCronica;
     private boolean astm;
     private boolean silicoza;
-    private boolean alteleBoliPlamani;
+    private String alteleBoliPlamani;
     private boolean gastrita;
     private boolean ulcer;
     private boolean refluxEsofagian;
     private boolean hernieHiatala;
-    private boolean alteleBoliDigestive;
+    private String alteleBoliDigestive;
     private boolean hepatita;
     private boolean ciroza;
-    private boolean alteleBoliHepatice;
+    private String alteleBoliHepatice;
     private boolean diabetZaharat;
     private boolean guta;
-    private boolean alteleBoliMetabolice;
+    private String alteleBoliMetabolice;
     private boolean hipertiroidism;
     private boolean feocromocitom;
-    private boolean alteleBoliEndocrine;
+    private String alteleBoliEndocrine;
     private boolean epilepsie;
-    private boolean alteleBoliNeurologice;
+    private String alteleBoliNeurologice;
     private boolean afectiuniColoana;
-    private boolean alteleAfectiuniSchelet;
+    private String alteleAfectiuniSchelet;
     private boolean depresii;
     private boolean fobii;
-    private boolean alteleBoliPsihice;
+    private String alteleBoliPsihice;
     private boolean sangeratiUsor;
     private boolean hemofilie;
     private boolean anemie;
     private boolean leucemie;
     private boolean limfom;
-    private boolean alteleBoliHematologice;
+    private String alteleBoliHematologice;
     private String alteBoli;
 
     private boolean boliInfectioase;
@@ -104,7 +104,7 @@ public class ChestionarEvalGenDAO {
     private boolean lesin;
     private boolean greata;
     private boolean alergiiStomatoligice;
-    private boolean alteleStomatologice;
+    private String alteleStomatologice;
 
     private boolean tratamenteChirugicale;
     private String interventii;
@@ -114,8 +114,8 @@ public class ChestionarEvalGenDAO {
     private boolean sedareGenerala;
 
     private boolean fumati;
-    private int cateTigari;
-    private int catiAni;
+    private String cateTigari;
+    private String catiAni;
 
     private boolean bauturiAlcoolice;
     private String tipBauturi;
