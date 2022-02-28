@@ -10,6 +10,7 @@ public interface ClientService {
     List<ClientDAO> findAll();
     ResponseEntity<?>addClient(ClientDAO clientDAO);
     ClientDAO findByClientId(UUID clientId);
+    ClientDAO findByEmailAndFirstName(String email, String firstName);
     Boolean existsEmail( String email);
     ResponseEntity<?> updateClient(ClientDAO clientDAO, UUID clientId);
     ResponseEntity<?> deleteClient(UUID clientId);

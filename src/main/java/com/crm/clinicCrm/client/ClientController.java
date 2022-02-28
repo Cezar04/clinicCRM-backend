@@ -29,6 +29,11 @@ public class ClientController {
         return clientService.findByClientId(clientId);
     }
 
+    @GetMapping("/{email}/{firstName}")
+    public ClientDAO getClientByEmailAndName(@PathVariable String email, @PathVariable String firstName){
+        return  clientService.findByEmailAndFirstName(email, firstName);
+    }
+
     @PostMapping("/add-client")
     private ResponseEntity<?> addClient(@RequestBody ClientDAO clientDAO){
         if(clientService.existsEmail(clientDAO.getEmail())){

@@ -50,6 +50,12 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
+    public ClientDAO findByEmailAndFirstName(String email, String firstName) {
+        Optional<ClientModel> clientModelOptional = clientRepository.findByEmailAndFirstName(email, firstName);
+        return clientModelOptional.map(serviceHelper::convertToClientDAO).orElse(null);
+    }
+
+    @Override
     public Boolean existsEmail(String email) {
         return clientRepository.existsByEmail(email);
     }
