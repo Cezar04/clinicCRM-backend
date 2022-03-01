@@ -9,6 +9,6 @@ import java.util.UUID;
 
 public interface SemnaturaService {
     ResponseEntity<?> store(String file, UUID chestionarEvalGenId, UUID clientId) throws IOException;
-    SemnaturaModel getSemnaturaByChestionarEvalGenId(UUID ChestionarEvalGenId);
-    Boolean existsSemnatura(UUID chestionarEvalGenId);
+    SemnaturaModel getSemnaturaByChestionarId(UUID ChestionarId);
+    Boolean existsSemnatura(UUID chestionarId);
 }

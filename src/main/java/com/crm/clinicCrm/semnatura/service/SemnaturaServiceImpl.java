@@ -29,14 +29,14 @@ public class SemnaturaServiceImpl implements SemnaturaService{
         this.semnaturaRepository = semnaturaRepository;
     }
 
-    public ResponseEntity<?> store(String file, UUID chestionarEvalGenId, UUID clientId) throws IOException {
+    public ResponseEntity<?> store(String file, UUID chestionarId, UUID clientId) throws IOException {
 
         String fileName = "semnatura";
         SemnaturaModel semnatura = new SemnaturaModel();
         semnatura.setNumeSemnatura(fileName);
         semnatura.setData(file);
         semnatura.setClientId(clientId);
-        semnatura.setChestionarEvalGenId(chestionarEvalGenId);
+        semnatura.setChestionarId(chestionarId);
         semnatura.setCreateDateTime(LocalDate.now());
 
         semnaturaRepository.save(semnatura);
@@ -44,12 +44,12 @@ public class SemnaturaServiceImpl implements SemnaturaService{
         return new ResponseEntity<>(semnatura, HttpStatus.OK);
     }
 
-    public SemnaturaModel getSemnaturaByChestionarEvalGenId(UUID ChestionarEvalGenId){
-        return  semnaturaRepository.findByChestionarEvalGenId(ChestionarEvalGenId);
+    public SemnaturaModel getSemnaturaByChestionarId(UUID ChestionarId){
+        return  semnaturaRepository.findByChestionarId(ChestionarId);
     }
 
     @Override
-    public Boolean existsSemnatura(UUID chestionarEvalGenId) {
-        return semnaturaRepository.existsByChestionarEvalGenId(chestionarEvalGenId);
+    public Boolean existsSemnatura(UUID chestionarId) {
+        return semnaturaRepository.existsByChestionarId(chestionarId);
     }
 }

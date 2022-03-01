@@ -24,7 +24,7 @@ public class SemnaturaModel {
     private String numeSemnatura;
     @Lob
     private String data;
-    private UUID chestionarEvalGenId;
+    private UUID chestionarId;
     private UUID clientId;
 
 

@@ -34,7 +34,7 @@ public class SemnaturaController {
 
     @GetMapping("/{chestionarEvalGenId}")
     public ResponseEntity<?> getSemnaturaByChestionarId(@PathVariable UUID chestionarEvalGenId){
-        return new ResponseEntity<>(semnaturaServiceImpl.getSemnaturaByChestionarEvalGenId(chestionarEvalGenId), HttpStatus.OK);
+        return new ResponseEntity<>(semnaturaServiceImpl.getSemnaturaByChestionarId(chestionarEvalGenId), HttpStatus.OK);
     }
 
 }
