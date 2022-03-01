@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.UUID;
 @Entity
 @AllArgsConstructor
@@ -27,5 +26,8 @@ public class SemnaturaModel {
     private String data;
     private UUID chestionarEvalGenId;
     private UUID clientId;
+
+
+    private LocalDate createDateTime;
 
 }

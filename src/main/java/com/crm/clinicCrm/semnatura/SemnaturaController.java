@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.IOException;
 import java.util.UUID;
@@ -23,7 +23,6 @@ public class SemnaturaController {
     public SemnaturaController(SemnaturaServiceImpl semnaturaServiceImpl) {
         this.semnaturaServiceImpl = semnaturaServiceImpl;
     }
-
 
     @PostMapping("/add/{chestionarEvalGenID}/{clientId}")
     public ResponseEntity<?> addSemnatura(@RequestBody String file, @PathVariable UUID chestionarEvalGenID,@PathVariable UUID clientId) throws IOException {

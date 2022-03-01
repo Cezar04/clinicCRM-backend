@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -35,6 +37,7 @@ public class SemnaturaServiceImpl implements SemnaturaService{
         semnatura.setData(file);
         semnatura.setClientId(clientId);
         semnatura.setChestionarEvalGenId(chestionarEvalGenId);
+        semnatura.setCreateDateTime(LocalDate.now());
 
         semnaturaRepository.save(semnatura);
 
