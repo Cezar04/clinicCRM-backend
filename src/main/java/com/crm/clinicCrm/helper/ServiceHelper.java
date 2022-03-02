@@ -2,6 +2,8 @@ package com.crm.clinicCrm.helper;
 
 import com.crm.clinicCrm.chestionarEvalGenerala.ChestionarEvalGenDAO;
 import com.crm.clinicCrm.chestionarEvalGenerala.ChestionarEvalGenModal;
+import com.crm.clinicCrm.chestionarFurnizareInfo.ChestionarFurnizareInfoDAO;
+import com.crm.clinicCrm.chestionarFurnizareInfo.ChestionarFurnizareInfoModel;
 import com.crm.clinicCrm.client.ClientDAO;
 import com.crm.clinicCrm.client.ClientModel;
 import com.crm.clinicCrm.client.service.ClientService;
@@ -83,6 +85,54 @@ public class ServiceHelper {
                 .comment(recordDAO.getComment())
                 .procedure(recordDAO.getProcedure())
                 .isConfirmed(recordDAO.isConfirmed())
+                .build();
+    }
+
+    public ChestionarFurnizareInfoModel convertToChestionarFurnizareInfoEntity(ChestionarFurnizareInfoDAO chestionarFurnizareInfoDAO){
+        return ChestionarFurnizareInfoModel.builder()
+                .id(chestionarFurnizareInfoDAO.getId())
+                .alternativeViabile(chestionarFurnizareInfoDAO.isAlternativeViabile())
+                .beneficiileSiConsecintele(chestionarFurnizareInfoDAO.isBeneficiileSiConsecintele())
+                .dreptulLaADouaOpinie(chestionarFurnizareInfoDAO.isDreptulLaADouaOpinie())
+                .informatiiDespreIdendtitateaPersonalului(chestionarFurnizareInfoDAO.isInformatiiDespreIdendtitateaPersonalului())
+                .informatiiDespreReguli(chestionarFurnizareInfoDAO.isInformatiiDespreReguli())
+                .informatiiDespreServiciileMedicale(chestionarFurnizareInfoDAO.isInformatiiDespreServiciileMedicale())
+                .interventiileSiStrategie(chestionarFurnizareInfoDAO.isInterventiileSiStrategie())
+                .mediaInformatiilor(chestionarFurnizareInfoDAO.getMediaInformatiilor())
+                .mentiuni(chestionarFurnizareInfoDAO.getMentiuni())
+                .naturaSiScopulActuluiMedical(chestionarFurnizareInfoDAO.isNaturaSiScopulActuluiMedical())
+                .numeSiPrenume(chestionarFurnizareInfoDAO.getNumeSiPrenume())
+                .potRefuzaProcesulEducational(chestionarFurnizareInfoDAO.isPotRefuzaProcesulEducational())
+                .prognostic(chestionarFurnizareInfoDAO.isPrognostic())
+                .rescurileNerespectaiiRecomandarilor(chestionarFurnizareInfoDAO.isRescurileNerespectaiiRecomandarilor())
+                .riscurileNeefectuarii(chestionarFurnizareInfoDAO.isRiscurileNeefectuarii())
+                .riscurilePotentiale(chestionarFurnizareInfoDAO.isRiscurilePotentiale())
+                .situatiiNeprevazute(chestionarFurnizareInfoDAO.isSituatiiNeprevazute())
+                .supozitiiDiagnostic(chestionarFurnizareInfoDAO.isSupozitiiDiagnostic())
+                .build();
+    }
+
+    public ChestionarFurnizareInfoDAO convertToChestionarFurnizareInfoDAO(ChestionarFurnizareInfoModel chestionarFurnizareInfoModel){
+        return ChestionarFurnizareInfoDAO.builder()
+                .alternativeViabile(chestionarFurnizareInfoModel.isAlternativeViabile())
+                .beneficiileSiConsecintele(chestionarFurnizareInfoModel.isBeneficiileSiConsecintele())
+                .dreptulLaADouaOpinie(chestionarFurnizareInfoModel.isDreptulLaADouaOpinie())
+                .id(chestionarFurnizareInfoModel.getId())
+                .informatiiDespreIdendtitateaPersonalului(chestionarFurnizareInfoModel.isInformatiiDespreIdendtitateaPersonalului())
+                .informatiiDespreReguli(chestionarFurnizareInfoModel.isInformatiiDespreReguli())
+                .informatiiDespreServiciileMedicale(chestionarFurnizareInfoModel.isInformatiiDespreServiciileMedicale())
+                .interventiileSiStrategie(chestionarFurnizareInfoModel.isInterventiileSiStrategie())
+                .mediaInformatiilor(chestionarFurnizareInfoModel.getMediaInformatiilor())
+                .mentiuni(chestionarFurnizareInfoModel.getMentiuni())
+                .supozitiiDiagnostic(chestionarFurnizareInfoModel.isSupozitiiDiagnostic())
+                .naturaSiScopulActuluiMedical(chestionarFurnizareInfoModel.isNaturaSiScopulActuluiMedical())
+                .numeSiPrenume(chestionarFurnizareInfoModel.getNumeSiPrenume())
+                .potRefuzaProcesulEducational(chestionarFurnizareInfoModel.isPotRefuzaProcesulEducational())
+                .prognostic(chestionarFurnizareInfoModel.isPrognostic())
+                .rescurileNerespectaiiRecomandarilor(chestionarFurnizareInfoModel.isRescurileNerespectaiiRecomandarilor())
+                .riscurileNeefectuarii(chestionarFurnizareInfoModel.isRiscurileNeefectuarii())
+                .riscurilePotentiale(chestionarFurnizareInfoModel.isRiscurilePotentiale())
+                .situatiiNeprevazute(chestionarFurnizareInfoModel.isSituatiiNeprevazute())
                 .build();
     }
 
