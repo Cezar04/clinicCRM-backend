@@ -31,9 +31,8 @@ public class SemnaturaServiceImpl implements SemnaturaService{
 
     public ResponseEntity<?> store(String file, UUID chestionarId, UUID clientId) throws IOException {
 
-        String fileName = "semnatura";
         SemnaturaModel semnatura = new SemnaturaModel();
-        semnatura.setNumeSemnatura(fileName);
+
         semnatura.setData(file);
         semnatura.setClientId(clientId);
         semnatura.setChestionarId(chestionarId);
@@ -44,12 +43,35 @@ public class SemnaturaServiceImpl implements SemnaturaService{
         return new ResponseEntity<>(semnatura, HttpStatus.OK);
     }
 
+    @Override
+    public ResponseEntity<?> addSignature(String file, UUID clientId, String numeChestionar) {
+        SemnaturaModel semnaturaModel = new SemnaturaModel();
+        semnaturaModel.setData(file);
+        semnaturaModel.setClientId(clientId);
+        semnaturaModel.setNumeChestionar(numeChestionar);
+        semnaturaModel.setCreateDateTime(LocalDate.now());
+
+        semnaturaRepository.save(semnaturaModel);
+
+        return new ResponseEntity<>(semnaturaModel, HttpStatus.OK);
+    }
+
     public SemnaturaModel getSemnaturaByChestionarId(UUID ChestionarId){
         return  semnaturaRepository.findByChestionarId(ChestionarId);
     }
 
     @Override
+    public SemnaturaModel getSemnaturaByNumeChestionarAndClientId(UUID clientId, String numeChestionar) {
+        return semnaturaRepository.findByClientIdAndNumeChestionar(clientId,numeChestionar);
+    }
+
+    @Override
     public Boolean existsSemnatura(UUID chestionarId) {
         return semnaturaRepository.existsByChestionarId(chestionarId);
+    }
+
+    @Override
+    public Boolean existsSemnaturaByNumeChestionarAndClientId(String numeChestionar, UUID clientid) {
+        return semnaturaRepository.existsByNumeChestionarAndAndClientId(numeChestionar,clientid);
     }
 }

@@ -41,7 +41,6 @@ public class ChestionarFurnizareInfoServiceImpl implements ChestionarFurnizareIn
     @Override
     public ResponseEntity<?> addChestionarFurnizareInfo(ChestionarFurnizareInfoDAO chestionarFurnizareInfoDAO, UUID clientId) {
         Optional<ClientModel> clientModelOptional = clientRepository.findById(clientId);
-
         if(clientModelOptional.isPresent()){
             ChestionarFurnizareInfoModel chestionar = serviceHelper.convertToChestionarFurnizareInfoEntity(chestionarFurnizareInfoDAO);
             chestionar.setCreatedDateTime(LocalDate.now());

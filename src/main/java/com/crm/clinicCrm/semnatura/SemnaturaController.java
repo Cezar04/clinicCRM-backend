@@ -32,9 +32,22 @@ public class SemnaturaController {
         return semnaturaServiceImpl.store(file,chestionarEvalGenID,clientId);
     }
 
+    @PostMapping("/form-signature/{clientId}/{formName}")
+    public ResponseEntity<?> addSemnaturaByFormName(@RequestBody String file, @PathVariable UUID clientId, @PathVariable String formName){
+        if(semnaturaServiceImpl.existsSemnaturaByNumeChestionarAndClientId(formName, clientId)){
+            return  ResponseEntity.badRequest().body("Semnatura already exists");
+        }
+        return semnaturaServiceImpl.addSignature(file,clientId,formName);
+    }
+
     @GetMapping("/{chestionarEvalGenId}")
     public ResponseEntity<?> getSemnaturaByChestionarId(@PathVariable UUID chestionarEvalGenId){
         return new ResponseEntity<>(semnaturaServiceImpl.getSemnaturaByChestionarId(chestionarEvalGenId), HttpStatus.OK);
+    }
+
+    @GetMapping("/byFormNameAndClientId/{formName}/{clientId}")
+    public ResponseEntity<?> getSemnaturaByFormNameAndClientId(@PathVariable String formName, @PathVariable UUID clientId){
+        return  new ResponseEntity<>(semnaturaServiceImpl.getSemnaturaByNumeChestionarAndClientId(clientId, formName), HttpStatus.OK);
     }
 
 }

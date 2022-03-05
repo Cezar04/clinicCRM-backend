@@ -21,11 +21,12 @@ public class SemnaturaModel {
     private UUID id;
 
     @Column
-    private String numeSemnatura;
+    private String numeChestionar;
     @Lob
     private String data;
     private UUID chestionarId;
     private UUID clientId;
+
 
 
     private LocalDate createDateTime;
