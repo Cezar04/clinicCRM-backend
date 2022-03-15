@@ -34,9 +34,6 @@ public class SemnaturaController {
 
     @PostMapping("/form-signature/{clientId}/{formName}")
     public ResponseEntity<?> addSemnaturaByFormName(@RequestBody String file, @PathVariable UUID clientId, @PathVariable String formName){
-//        if(semnaturaServiceImpl.existsSemnaturaByNumeChestionarAndClientId(formName, clientId)){
-//            return  ResponseEntity.badRequest().body("Semnatura already exists");
-//        }
         return semnaturaServiceImpl.addSignature(file,clientId,formName);
     }
 
