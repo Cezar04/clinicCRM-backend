@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.UUID;
 
 
@@ -18,7 +17,7 @@ import java.util.UUID;
 @Transactional
 public class SemnaturaServiceImpl implements SemnaturaService{
 
-    private SemnaturaRepository semnaturaRepository;
+    private final SemnaturaRepository semnaturaRepository;
 
 
 

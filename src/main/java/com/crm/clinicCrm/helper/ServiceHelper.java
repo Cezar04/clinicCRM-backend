@@ -251,7 +251,7 @@ public class ServiceHelper {
                 .id(chestionarEvalGenDAO.getId())
                 .afectiuneaTrata(chestionarEvalGenDAO.getAfectiuneaTrata())
                 .afectiuniColoana(chestionarEvalGenDAO.isAfectiuniColoana())
-                .afectiuneCronica(chestionarEvalGenDAO.isBronsitaCronica())
+                .afectiuneCronica(chestionarEvalGenDAO.isAfectiuneCronica())
                 .alergii(chestionarEvalGenDAO.getAlergii())
                 .alergiiStomatoligice(chestionarEvalGenDAO.isAlergiiStomatoligice())
                 .alteBoli(chestionarEvalGenDAO.getAlteBoli())
