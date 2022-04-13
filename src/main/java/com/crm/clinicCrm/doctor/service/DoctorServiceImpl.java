@@ -52,13 +52,37 @@ public class DoctorServiceImpl implements DoctorService{
 
     @Override
     public ResponseEntity<?> updateDoctor(DoctorDAO doctorDAO, UUID doctorId) {
+        Optional<DoctorModel> doctorModelOptional = doctorRepository.findById(doctorId);
+        DoctorModel unmanagedDoctorEntity = serviceHelper.convertToDoctorEntity(doctorDAO);
+
+        if (doctorModelOptional.isPresent()) {
+            DoctorModel managedDoctorEntity = doctorModelOptional.get();
+            managedDoctorEntity.setName(unmanagedDoctorEntity.getName());
+            managedDoctorEntity.setDomain(unmanagedDoctorEntity.getDomain());
+            managedDoctorEntity.setEmail(unmanagedDoctorEntity.getEmail());
+            managedDoctorEntity.setPhoneNumber(unmanagedDoctorEntity.getPhoneNumber());
+
+            doctorRepository.save(managedDoctorEntity);
+
+            return ResponseEntity.status(HttpStatus.OK).body(managedDoctorEntity + "Doctor Updated");
+        }else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("doctor" + doctorId + "not found");
+        }
+
         return null;
     }
 
     @Override
     public ResponseEntity<?> deleteDoctor(UUID doctorId) {
-        return null;
+        Optional<DoctorModel> managedDoctorEntity = doctorRepository.findById(doctorId);
+
+        if (managedDoctorEntity.isPresent()) {
+            DoctorModel doctorModel = managedDoctorEntity.get();
+            doctorRepository.delete(doctorModel);
+            return new ResponseEntity<>(doctorModel, HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>("No doctor found to delete!", HttpStatus.BAD_REQUEST);
+        }
     }
 
-//TODO implement update and delete methods
 }

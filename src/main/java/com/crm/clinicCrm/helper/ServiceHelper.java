@@ -54,8 +54,7 @@ public class ServiceHelper {
     public DoctorDAO convertToDoctorDAO(DoctorModel doctorModel){
         return DoctorDAO.builder()
                 .id(doctorModel.getId())
-                .firstName(doctorModel.getFirstName())
-                .lastName(doctorModel.getLastName())
+                .name(doctorModel.getName())
                 .email(doctorModel.getEmail())
                 .phoneNumber(doctorModel.getPhoneNumber())
                 .build();
@@ -63,8 +62,7 @@ public class ServiceHelper {
 
     public DoctorModel convertToDoctorEntity(DoctorDAO doctorDAO){
         return DoctorModel.builder()
-                .firstName(doctorDAO.getFirstName())
-                .lastName(doctorDAO.getLastName())
+                .name(doctorDAO.getName())
                 .email(doctorDAO.getEmail())
                 .phoneNumber(doctorDAO.getPhoneNumber())
                 .build();

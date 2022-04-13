@@ -21,10 +21,11 @@ public class DoctorModel {
     @Column(name = "doctor")
     private UUID id;
 
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String domain;
     private String email;
     private String phoneNumber;
+
 
 
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,5 +36,13 @@ public class DoctorController {
         return doctorService.findByDoctorId(doctorId);
     }
 
+    @DeleteMapping("/delete/{doctorId}")
+    public ResponseEntity<?> deleteDoctor(@PathVariable UUID doctorId) {
+        return doctorService.deleteDoctor(doctorId);}
+
+    @PutMapping("/edit/{doctorId}")
+    public ResponseEntity<?> updateDoctor(@RequestBody DoctorDAO doctorDAO, @PathVariable UUID doctorId) {
+        return doctorService.updateDoctor(doctorDAO, doctorId);
+    }
 
 }

@@ -12,8 +12,8 @@ import java.util.UUID;
 @Builder
 public class DoctorDAO {
     private UUID id;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String domain;
     @Email
     private String email;
     private String phoneNumber;
