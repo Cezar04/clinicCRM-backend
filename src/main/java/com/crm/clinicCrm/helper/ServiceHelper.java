@@ -55,6 +55,7 @@ public class ServiceHelper {
         return DoctorDAO.builder()
                 .id(doctorModel.getId())
                 .name(doctorModel.getName())
+                .domain(doctorModel.getDomain())
                 .email(doctorModel.getEmail())
                 .phoneNumber(doctorModel.getPhoneNumber())
                 .build();
@@ -63,6 +64,7 @@ public class ServiceHelper {
     public DoctorModel convertToDoctorEntity(DoctorDAO doctorDAO){
         return DoctorModel.builder()
                 .name(doctorDAO.getName())
+                .domain(doctorDAO.getDomain())
                 .email(doctorDAO.getEmail())
                 .phoneNumber(doctorDAO.getPhoneNumber())
                 .build();
