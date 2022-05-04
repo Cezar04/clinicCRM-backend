@@ -1,5 +1,7 @@
 package com.crm.clinicCrm.helper;
 
+import com.crm.clinicCrm.appointments.AppointmentDAO;
+import com.crm.clinicCrm.appointments.AppointmentModel;
 import com.crm.clinicCrm.chestionarEvalGenerala.ChestionarEvalGenDAO;
 import com.crm.clinicCrm.chestionarEvalGenerala.ChestionarEvalGenModal;
 import com.crm.clinicCrm.chestionarFurnizareInfo.ChestionarFurnizareInfoDAO;
@@ -63,11 +65,40 @@ public class ServiceHelper {
 
     public DoctorModel convertToDoctorEntity(DoctorDAO doctorDAO){
         return DoctorModel.builder()
+                .id(doctorDAO.getId())
                 .name(doctorDAO.getName())
                 .domain(doctorDAO.getDomain())
                 .email(doctorDAO.getEmail())
                 .phoneNumber(doctorDAO.getPhoneNumber())
                 .build();
+    }
+
+    public AppointmentDAO convertToAppointmentDAO(AppointmentModel appointmentModel) {
+        return AppointmentDAO.builder()
+//                .id(appointmentModel.getId())
+                .doctorId(appointmentModel.getDoctorId())
+                .doctorName(appointmentModel.getDoctorName())
+                .clientFirstName(appointmentModel.getClientFirstName())
+                .clientLastName(appointmentModel.getClientLastName())
+                .start(appointmentModel.getStartDate())
+                .end(appointmentModel.getEndDate())
+                .procedure(appointmentModel.getProcedure())
+                .build();
+
+    }
+
+    public AppointmentModel convertToAppointmentEntity(AppointmentDAO appointmentDAO) {
+        return AppointmentModel.builder()
+//                .id(appointmentDAO.getId())
+                .doctorId(appointmentDAO.getDoctorId())
+                .doctorName(appointmentDAO.getDoctorName())
+                .clientFirstName(appointmentDAO.getClientFirstName())
+                .clientLastName(appointmentDAO.getClientLastName())
+                .startDate(appointmentDAO.getStart())
+                .endDate(appointmentDAO.getEnd())
+                .procedure(appointmentDAO.getProcedure())
+                .build();
+
     }
 
     public RecordDAO convertToRecordDAO(RecordModel recordModel){
