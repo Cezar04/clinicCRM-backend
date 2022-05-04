@@ -13,10 +13,9 @@ public interface AppointmentService {
     ResponseEntity<?> createNewAppointment(AppointmentDAO appointmentDAO);
     AppointmentDAO getAppointmentById(UUID appointmentId);
     AppointmentDAO getAppointmentByDoctorName(String doctorName);
-    AppointmentDAO getAppointmentByClientName(ClientNameDao clientNameDao);
+    List<AppointmentDAO> getAppointmentByClientName(String firstName, String lastName);
     ResponseEntity<?>  updateAppointment(AppointmentDAO appointmentDAO, UUID appointmentId);
     ResponseEntity<?> deleteAppointmentById(UUID appointmentId);
-
 
 
 }

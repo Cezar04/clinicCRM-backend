@@ -41,13 +41,4 @@ public class AppointmentModel {
     public void setDoctorId(int doctorId) {
     }
 
-//    public AppointmentModel(UUID id, String doctorName, int clientFirstName, String procedure, LocalDateTime start, LocalDateTime end, String comments) {
-//        this.id = id;
-//        this.doctorName = doctorName;
-//        this.clientId = clientId;
-//        this.procedure = procedure;
-//        this.start = start;
-//        this.end = end;
-//        this.comments = comments;
-//    }
 }

@@ -57,9 +57,14 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public AppointmentDAO getAppointmentByClientName(ClientNameDao clientName) {
-        Optional<AppointmentModel> appointmentModelOptional = appointmentRepository.findByClientName(clientName.getFirstName(),clientName.getLastName());
-        return appointmentModelOptional.map(serviceHelper::convertToAppointmentDAO).orElse(null);
+    public List<AppointmentDAO> getAppointmentByClientName(String firstName, String lastName) {
+
+        List<AppointmentDAO> allAppointmentsByClientName = new ArrayList<>();
+        Iterable<AppointmentModel> appointments = appointmentRepository.findByClientFirstNameAndClientLastName(firstName, lastName);
+        appointments.forEach(appointmentModel -> allAppointmentsByClientName.add(serviceHelper.convertToAppointmentDAO(appointmentModel)));
+
+        return allAppointmentsByClientName;
+
     }
 
     @Override

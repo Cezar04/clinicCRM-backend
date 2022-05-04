@@ -40,9 +40,9 @@ public class AppointmentController {
         return appointmentService.getAppointmentByDoctorName(doctorName);
     }
 
-    @GetMapping("/clients")
-    public AppointmentDAO getAppointmentByClientFirstNameAndLastName(@RequestBody ClientNameDao clientNameDao) {
-        return appointmentService.getAppointmentByClientName(clientNameDao);
+    @GetMapping("/clients/{firstName}/{lastName}")
+    public List<AppointmentDAO> getAppointmentByClientFirstNameAndLastName(@PathVariable String firstName, String lastName) {
+        return appointmentService.getAppointmentByClientName(firstName, lastName);
     }
 
     @DeleteMapping("/delete/{appointmentId}")
