@@ -40,8 +40,4 @@ public class ClientModel {
     @Temporal(TemporalType.TIME)
     private Date createDateTime;
 
-//    @OneToOne
-//    @MapsId
-//    @JoinColumn(name = "client_id")
-//    private AppointmentModel appointmentModel;
 }
