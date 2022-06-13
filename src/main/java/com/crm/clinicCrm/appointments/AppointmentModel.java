@@ -25,7 +25,7 @@ public class AppointmentModel {
     @Column(name = "id")
     private UUID id;
 
-    private int doctorId;
+    private UUID doctorId;
     private String doctorName;
 
     private String clientFirstName;
@@ -38,7 +38,7 @@ public class AppointmentModel {
     @DateTimeFormat()
     private LocalDateTime endDate;
 
-    public void setDoctorId(int doctorId) {
+    public void setDoctorId(UUID doctorId) {
     }
 
 }
