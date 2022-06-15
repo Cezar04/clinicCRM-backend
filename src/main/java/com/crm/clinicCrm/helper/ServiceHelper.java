@@ -8,7 +8,8 @@ import com.crm.clinicCrm.chestionarFurnizareInfo.ChestionarFurnizareInfoDAO;
 import com.crm.clinicCrm.chestionarFurnizareInfo.ChestionarFurnizareInfoModel;
 import com.crm.clinicCrm.client.ClientDAO;
 import com.crm.clinicCrm.client.ClientModel;
-import com.crm.clinicCrm.client.service.ClientService;
+import com.crm.clinicCrm.comments.CommentsDAO;
+import com.crm.clinicCrm.comments.CommentsModel;
 import com.crm.clinicCrm.doctor.DoctorDAO;
 import com.crm.clinicCrm.doctor.DoctorModel;
 import com.crm.clinicCrm.medicalRecord.RecordDAO;
@@ -50,6 +51,21 @@ public class ServiceHelper {
                 .address(clientDAO.getAddress())
                 .occupation(clientDAO.getOccupation())
                 .birthDate(clientDAO.getBirthDate())
+                .build();
+    }
+
+    public CommentsDAO convertToCommentDAO(CommentsModel commentsModel){
+        return CommentsDAO.builder()
+                .id(commentsModel.getId())
+                .comment(commentsModel.getComment())
+                .build();
+    }
+
+    public CommentsModel convertToCommentEntity(CommentsDAO commentsDAO){
+        return CommentsModel.builder()
+                .id(commentsDAO.getId())
+                .comment(commentsDAO.getComment())
+
                 .build();
     }
 
@@ -100,6 +116,8 @@ public class ServiceHelper {
                 .build();
 
     }
+
+
 
     public RecordDAO convertToRecordDAO(RecordModel recordModel){
 

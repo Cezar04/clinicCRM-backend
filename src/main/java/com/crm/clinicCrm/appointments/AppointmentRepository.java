@@ -18,9 +18,5 @@ public interface AppointmentRepository extends JpaRepository<AppointmentModel, U
     List<AppointmentModel> getAppointmentByDoctorName(String doctorName);
 
     List<AppointmentModel> findByClientFirstNameAndClientLastName(String clientFirstName, String clientLastName);
-//    Optional<AppointmentModel> findByDoctorId(UUID doctorId);
-//    Optional<AppointmentModel> findByClientId(UUID clientId);
-//    Optional<AppointmentModel> findByDoctorIdWithStartInPeriod(UUID doctorId, LocalDateTime startPeriod, LocalDateTime endPeriod);
-//    Optional<AppointmentModel> findByClientIdWithStartInPeriod(UUID clientId, LocalDateTime startPeriod, LocalDateTime endPeriod);
 
 }

@@ -1,8 +1,5 @@
 package com.crm.clinicCrm.client;
 
-
-import com.crm.clinicCrm.appointments.AppointmentModel;
-import com.crm.clinicCrm.medicalRecord.RecordModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,8 +37,5 @@ public class ClientModel {
     @Temporal(TemporalType.TIME)
     private Date createDateTime;
 
-//    @OneToOne
-//    @MapsId
-//    @JoinColumn(name = "client_id")
-//    private AppointmentModel appointmentModel;
+
 }
