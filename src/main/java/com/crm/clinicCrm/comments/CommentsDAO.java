@@ -1,6 +1,5 @@
 package com.crm.clinicCrm.comments;
 
-
 import lombok.*;
 
 import java.util.UUID;
@@ -10,8 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-public class CommentDAO {
-
+public class CommentsDAO {
     private UUID id;
-    private String content;
+    private String comment;
 }

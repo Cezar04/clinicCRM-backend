@@ -14,7 +14,7 @@ import java.util.UUID;
 public class AppointmentDAO {
 //    private UUID id;
 
-    private int doctorId;
+    private UUID doctorId;
 
     private String doctorName;
     private String clientFirstName;
