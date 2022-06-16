@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -21,5 +22,20 @@ public class CommentsController {
     @PostMapping("/add/{clientId}")
     private ResponseEntity<?> addComment(@RequestBody CommentsDAO commentsDAO, @PathVariable UUID clientId){
         return commentsService.addComment(commentsDAO,clientId);
+    }
+
+    @GetMapping("/all")
+    public List<CommentsModel> getAllComments() {
+        return commentsService.findAll();
+    }
+
+    @GetMapping("/all/{clientId}")
+    public List<CommentsModel> getAllCommentsByClientId(@PathVariable UUID clientId){
+        return commentsService.findAllByClientId(clientId);
+    }
+
+    @DeleteMapping("/delete/{commentId}")
+    public ResponseEntity<?> deleteComment(@PathVariable UUID commentId){
+        return commentsService.deleteComment(commentId);
     }
 }

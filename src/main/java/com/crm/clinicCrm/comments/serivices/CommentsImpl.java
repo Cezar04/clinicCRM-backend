@@ -59,6 +59,7 @@ public class CommentsImpl implements CommentsService{
 
     @Override
     public ResponseEntity<?> deleteComment(UUID commentId) {
-        return null;
+         commentsRepository.deleteById(commentId);
+        return new ResponseEntity<>("comment deleted", HttpStatus.GONE);
     }
 }
