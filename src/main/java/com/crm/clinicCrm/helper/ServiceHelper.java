@@ -91,7 +91,7 @@ public class ServiceHelper {
 
     public AppointmentDAO convertToAppointmentDAO(AppointmentModel appointmentModel) {
         return AppointmentDAO.builder()
-//                .id(appointmentModel.getId())
+                .id(appointmentModel.getId())
                 .doctorId(appointmentModel.getDoctorId())
                 .doctorName(appointmentModel.getDoctorName())
                 .clientFirstName(appointmentModel.getClientFirstName())
@@ -105,7 +105,7 @@ public class ServiceHelper {
 
     public AppointmentModel convertToAppointmentEntity(AppointmentDAO appointmentDAO) {
         return AppointmentModel.builder()
-//                .id(appointmentDAO.getId())
+                .id(appointmentDAO.getId())
                 .doctorId(appointmentDAO.getDoctorId())
                 .doctorName(appointmentDAO.getDoctorName())
                 .clientFirstName(appointmentDAO.getClientFirstName())

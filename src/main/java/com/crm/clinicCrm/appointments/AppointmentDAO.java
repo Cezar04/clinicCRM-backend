@@ -12,7 +12,7 @@ import java.util.UUID;
 @Setter
 @Builder
 public class AppointmentDAO {
-//    private UUID id;
+    private UUID id;
 
     private UUID doctorId;
 
